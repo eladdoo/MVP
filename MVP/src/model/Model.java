@@ -70,4 +70,8 @@ public interface Model
 	 * @return the ting queue mazes
 	 */
 	Queue<MazeDomain> gettingQueueMazes();
+	
+	String gettingError();
+	
+	void loadXmlFill(String file);
 }

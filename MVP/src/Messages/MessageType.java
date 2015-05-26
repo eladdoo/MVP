@@ -18,5 +18,9 @@ public enum MessageType
 	/** The exit. */
 	EXIT,
 	/** The Maze name. */
-	MazeName;
+	MazeName,
+	/** The error. */
+	ERROR,
+	/** The Open file. */
+	OpenFile;
 }

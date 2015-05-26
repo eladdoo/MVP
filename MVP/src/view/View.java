@@ -62,4 +62,6 @@ public interface View
 	 * @param update the update
 	 */
 	void UpdateUser(String update);
+	
+	String gettingFileName();
 }

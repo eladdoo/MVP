@@ -74,6 +74,9 @@ public class MyModel extends Observable implements Model
 	/** The huris. */
 	private String huris;
 	
+	/** The Error. */
+	private String Error;
+	
 
 	/**
 	 * Instantiates a new my model.
@@ -96,6 +99,7 @@ public class MyModel extends Observable implements Model
 		catch (FileNotFoundException e) 
 		{
 			e.printStackTrace();
+			this.Error = "file not found";
 		}
 	}
 
@@ -124,10 +128,12 @@ public class MyModel extends Observable implements Model
 		catch (InterruptedException e)
 		{
 			e.printStackTrace();
+			this.Error = "Interrupt found";
 		} 
 		catch (ExecutionException e) 
 		{
 			e.printStackTrace();
+			this.Error = "Execution found";
 		}
 		this.setChanged();
 		this.notifyObservers(MessageType.GenreatedMaze);
@@ -390,6 +396,34 @@ public class MyModel extends Observable implements Model
 	public Queue<String> gettingQueueSolution()
 	{
 		return this.solu;
+	}
+	
+	@Override
+	public String gettingError()
+	{
+		return this.Error;
+	}
+	
+	@Override
+	public void loadXmlFill(String file)
+	{
+		XMLDecoder decoder;
+		try 
+		{
+			decoder = new XMLDecoder(new FileInputStream(file));
+			Properties p = (Properties)decoder.readObject();
+			this.Tnum = p.getTNUM();
+			this.algoMaze = p.getAlgoCrMaze();
+			this.algoSolution = p.getAlgoSolution();
+			this.huris = p.getHuristic();
+			executor = Executors. newFixedThreadPool(Tnum);
+			this.LoadHuff();
+		} 
+		catch (FileNotFoundException e) 
+		{
+			e.printStackTrace();
+			this.Error = "file not found";
+		}
 	}
 
 }

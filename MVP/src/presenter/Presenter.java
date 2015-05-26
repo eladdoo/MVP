@@ -64,6 +64,10 @@ public class Presenter implements Observer
 				m.stop();
 				v.exitProg();
 				break;
+			case OpenFile:
+				String fname = v.gettingFileName();
+				m.loadXmlFill(fname);
+				break;
 			}
 		}
 		else //its model
@@ -83,6 +87,10 @@ public class Presenter implements Observer
 			case MazeReady:
 				String solu = m.gettingQueueSolution().poll();
 				v.UpdateUser("The Solution for:" + " " + solu + " " + "is ready" );
+				break;
+			case ERROR:
+				String er = m.gettingError();
+				v.UpdateUser(er);
 				break;
 			}
 		}

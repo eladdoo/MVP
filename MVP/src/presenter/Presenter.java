@@ -67,6 +67,7 @@ public class Presenter implements Observer
 			case OpenFile:
 				String fname = v.gettingFileName();
 				m.loadXmlFill(fname);
+				v.UpdateUser("the file loaded");
 				break;
 			}
 		}

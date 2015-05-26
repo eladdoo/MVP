@@ -80,6 +80,7 @@ public class MyMazeWindow extends BasicWindow implements View
 	public void UpdateUser(String update) 
 	{
 	    messageBox.setMessage(update);
+	    messageBox.open();
 	}
 
 	@Override

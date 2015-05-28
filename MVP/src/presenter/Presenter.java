@@ -124,19 +124,26 @@ public class Presenter implements Observer
 		public void doCommand(String name) 
 		{
 			String[] res = name.split(" ");
-			String n = res[0];
-			int rows = Integer.parseInt(res[1]);
-			int colls = Integer.parseInt(res[2]);
-			boolean dig;
-			if (res[3].equals("Y"))
+			if (res.length<4 || res[3]!="Y" || res[3]!="N")
 			{
-				dig = true;
+				v.UpdateUser("Wrong Input Try Again");
 			}
 			else
 			{
-				dig = false;
+				String n = res[0];
+				int rows = Integer.parseInt(res[1]);
+				int colls = Integer.parseInt(res[2]);
+				boolean dig;
+				if (res[3].equals("Y"))
+				{
+					dig = true;
+				}
+				else
+				{
+					dig = false;
+				}
+				m.generateMaze(n,rows,colls,dig);
 			}
-			m.generateMaze(n,rows,colls,dig);
 		}
 
 	}
@@ -153,7 +160,14 @@ public class Presenter implements Observer
 		@Override
 		public void doCommand(String name) 
 		{
-			v.displayMaze(savedM.get(name).getM());
+			if (savedM.containsKey(name)==false)
+			{
+				v.UpdateUser("You Didnt Creat A Maze With That Name");
+			}
+			else
+			{
+				v.displayMaze(savedM.get(name).getM(),name);
+			}
 		}
 
 	}

@@ -21,12 +21,17 @@ public class InputDialog extends Dialog
 	  {
 	    this(parent, SWT.DIALOG_TRIM | SWT.APPLICATION_MODAL);
 	  }
+	  
+	  public InputDialog(Shell parent, int style)
+	  {
+		  super(parent, style);  
+	  }
 
-	  public InputDialog(Shell parent, int style) 
+	  public InputDialog(Shell parent, int style, String Text, String UserProp) 
 	  {
 	    super(parent, style);
-	    setText("Maze Defenition");
-	    setMessage("Please enter a value:");
+	    setText(Text);
+	    setMessage(UserProp);
 	  }
 
 	  public String getMessage()

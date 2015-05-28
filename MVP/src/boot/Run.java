@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import presenter.Presenter;
 import view.MyMazeWindow;
 import view.MyView;
+import view.PlayTheMaze;
 import view.ViewRunnable;
 import model.MyModel;
 

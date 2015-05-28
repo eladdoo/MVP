@@ -138,7 +138,7 @@ public class MyView extends CLI implements View
 	 * display the maze that was created in model
 	 */
 	@Override
-	public void displayMaze(Maze m) 
+	public void displayMaze(Maze m,String pMaze) 
 	{
 		m.print();
 		this.setChanged();
@@ -186,4 +186,6 @@ public class MyView extends CLI implements View
 	{
 		return null;
 	}
+	
+	
 }

@@ -35,7 +35,7 @@ public interface View
 	 *
 	 * @param m the m
 	 */
-	void displayMaze(Maze m);
+	void displayMaze(Maze m,String pMaze);
 	
 	/**
 	 * Display solution.

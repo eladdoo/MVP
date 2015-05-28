@@ -24,6 +24,7 @@ public class MyMazeWindow extends BasicWindow implements View
 	String MazeName;
 	String fileName;
 	String TheCommand;
+	int hintCounter=0;
 	PlayTheMaze pl;
 	/** The h. */
 	private HashMap<String,Command> h = new HashMap<String,Command>();
@@ -31,7 +32,6 @@ public class MyMazeWindow extends BasicWindow implements View
 	public MyMazeWindow(String title, int width, int height)
 	{
 		super(title, width, height);
-		pl = new PlayTheMaze(shell,this);
 	}
 
 	@Override
@@ -53,17 +53,18 @@ public class MyMazeWindow extends BasicWindow implements View
 	}
 
 	@Override
-	public void displayMaze(Maze m) 
+	public void displayMaze(Maze m,String pMaze) 
 	{
+		pl = new PlayTheMaze(shell,this);
+		this.MazeName = pMaze;
+		pl.setM(m);
 		pl.Open();
-		//UpdateUser("displaying maze");
 	}
 
 	@Override
 	public void displaySolution(Solution s)
 	{
-		// TODO Auto-generated method stub
-		
+		pl.setSol(s);
 	}
 
 	@Override
@@ -189,6 +190,26 @@ public class MyMazeWindow extends BasicWindow implements View
 	public String gettingFileName()
 	{
 		return this.fileName;
+	}
+	
+	public void SetChange()
+	{
+		this.setChanged();
+	}
+	
+	public void setTheCommand(String theCommand) 
+	{
+		TheCommand = theCommand;
+	}
+
+	public int getHintCounter() 
+	{
+		return hintCounter;
+	}
+
+	public void setHintCounter(int hintCounter) 
+	{
+		this.hintCounter = hintCounter;
 	}
 	
 }

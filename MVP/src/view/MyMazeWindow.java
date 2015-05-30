@@ -1,11 +1,14 @@
 package view;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -164,10 +167,12 @@ public class MyMazeWindow extends BasicWindow implements View
 				String[] filterExt = {"*.xml"};
 				fd.setFilterExtensions(filterExt);
 				fileName = fd.open();
-				setChanged();
-				notifyObservers(MessageType.OpenFile);
+				if (fileName!=null)
+				{
+					setChanged();
+					notifyObservers(MessageType.OpenFile);
+				}
 			}
-			
 		});
 		Button ex = new Button(shell,SWT.PUSH);
 		ex.setText("EXIT");

@@ -124,7 +124,7 @@ public class Presenter implements Observer
 		public void doCommand(String name) 
 		{
 			String[] res = name.split(" ");
-			if (res.length<4 || res[3]!="Y" || res[3]!="N")
+			if (res.length<4 || (res[3].equals("Y")==false && res[3].equals("N")==false))
 			{
 				v.UpdateUser("Wrong Input Try Again");
 			}

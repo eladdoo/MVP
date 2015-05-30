@@ -51,8 +51,10 @@ public class PlayTheMaze
 			@Override
 			public void widgetDefaultSelected(SelectionEvent paramSelectionEvent) {}	
 		});
-		Text t = new Text(shell,SWT.BORDER);
-		t.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true,1,3));
+		final MazeDisplay maze=new MazeDisplay(shell, SWT.BORDER,m);
+		maze.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,3));
+		//Text t = new Text(shell,SWT.BORDER);
+		//t.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true,1,3));
 		Button hint = new Button(shell,SWT.PUSH);
 		hint.setText("Get Hint");
 		hint.setLayoutData(new GridData(SWT.FILL,SWT.NONE,false,false,1,1));

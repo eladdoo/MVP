@@ -6,12 +6,15 @@ import java.io.FileNotFoundException;
 import java.util.HashMap;
 
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.PaintEvent;
+import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Canvas;
 import org.eclipse.swt.widgets.FileDialog;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
@@ -58,7 +61,7 @@ public class MyMazeWindow extends BasicWindow implements View
 	@Override
 	public void displayMaze(Maze m,String pMaze) 
 	{
-		pl = new PlayTheMaze(shell,this);
+		pl = new PlayTheMaze(this);
 		this.MazeName = pMaze;
 		pl.setM(m);
 		pl.Open();
@@ -95,6 +98,9 @@ public class MyMazeWindow extends BasicWindow implements View
 	void initWidgets()
 	{
 		shell.setLayout(new GridLayout(2,false));
+		final Image menu = new Image(display,"images/menu1.jpeg");
+		shell.setBackgroundImage(menu);
+		shell.setBounds(menu.getBounds().x,menu.getBounds().y, menu.getBounds().width,menu.getBounds().height);
 		Button nm = new Button(shell,SWT.PUSH);
 		nm.setText("New Maze");
 		nm.setLayoutData(new GridData(SWT.FILL,SWT.FILL,true,false,2,1));

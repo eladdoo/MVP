@@ -33,20 +33,42 @@ public class MazeDisplay extends Canvas
 				{
 					for(int j=0;j<m.getMaze()[i].length;j++)
 					{
-						int x=j*w;
-				        int y=i*h;
+						int x=(j)*w;
+				        int y=(i)*h;
+				        
+				        int x2 = (j +1)*w;
+				        int y2 = (i + 1) * h;
+				        
 				        if (m.getCell(i,j).isHasDownWall()==true)
 				        {
-				        	//e.gc.drawLine(x,y,w,h);
-				        	e.gc.fillRectangle(x,y,w,h);
+				        	e.gc.drawLine(x,y2,x2,y2);
+				        	//e.gc.fillRectangle(x,y,w,h);
+				        	//e.gc.drawLine(x1, y1, x2, y2);
 				        }
 				        if (m.getCell(i,j).isHasRightWall()==true)
 				        {
-				        	//e.gc.drawLine(x,y,w,h);
-				        	e.gc.fillRectangle(x,y,w,h);
+				        	e.gc.drawLine(x2,y,x2, y2);
+				        	//e.gc.fillRectangle(0,y,x,y);
 				        }
 					}
 				}
+				for (int i=0;i<m.getMaze().length;i++)
+				{
+					int y=(i)*h;
+					int y2 = (i + 1) * h;
+					e.gc.drawLine(0,y,0, y2);
+					int x = width-3;
+					e.gc.drawLine(x,y,x, y2);
+				}
+				for (int j=0;j<m.getMaze()[0].length;j++)
+				{
+					int x=(j + 1)*w;
+					int x2 = (j + 2)*w;
+					e.gc.drawLine(x,0,x2,0);
+					int y = height-3;
+					e.gc.drawLine(x,y,x2,y);
+				}
+				m.print();
 			}
 			
 		});

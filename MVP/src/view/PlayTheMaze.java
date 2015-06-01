@@ -20,9 +20,9 @@ public class PlayTheMaze
 	private Maze m;
 	private MyMazeWindow my;
 
-	public PlayTheMaze(Shell s,MyMazeWindow mz)
+	public PlayTheMaze(MyMazeWindow mz)
 	{
-		shell = new Shell(s);
+		shell = new Shell();
 		my = mz;
 	}
 
@@ -53,8 +53,6 @@ public class PlayTheMaze
 		});
 		final MazeDisplay maze=new MazeDisplay(shell, SWT.BORDER,m);
 		maze.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true,true,1,3));
-		//Text t = new Text(shell,SWT.BORDER);
-		//t.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true,1,3));
 		Button hint = new Button(shell,SWT.PUSH);
 		hint.setText("Get Hint");
 		hint.setLayoutData(new GridData(SWT.FILL,SWT.NONE,false,false,1,1));

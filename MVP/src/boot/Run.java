@@ -15,7 +15,7 @@ import model.MyModel;
  * The Class Run.
  * ELAD DOOCKER 304813280
  * VLAD OGRANOVIC 317208288
- */
+ 111*/
 public class Run {
 
 	/**
